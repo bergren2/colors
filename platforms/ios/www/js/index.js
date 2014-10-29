@@ -16,6 +16,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var ColorChooser = function () {
+
+  return {
+    initialize: function () {
+      this.newColor();
+
+      return this;
+    },
+    newColor: function () {
+      var color = '#';
+      var i;
+      for (i = 0; i < 6; i++) {
+        color += this.hex();
+      }
+
+      var body = document.getElementsByTagName('body')[0];
+      body.setAttribute('style', 'background: ' + color);
+    },
+    hex: function () {
+      var values = '0123456789ABCDEF';
+      return values[Math.floor(Math.random() * values.length)];
+    }
+  };
+};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -49,3 +74,4 @@ var app = {
 };
 
 app.initialize();
+var colors = ColorChooser().initialize();

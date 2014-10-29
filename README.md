@@ -18,17 +18,24 @@ You should have the following minimally setup:
 
 ## Development
 
-To run in the browser:
+### Browser
 
     $ cordova serve
 
-To run in an iOS emulator:
+Then visit [localhost:8000](http://localhost:8000).
+
+### iOS Emulator
 
     $ cordova emulate ios
 
-To run on a plugged in iPhone:
+### Run on iPhone
 
     $ cordova run ios
+
+### Caveats
+
+If it's your first time trying to run the emulator or on the iPhone, you may
+need to install additional components. You will be prompted when this happens.
 
 ## Deployment
 
