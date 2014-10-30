@@ -14,7 +14,6 @@ You should have the following minimally setup:
     $ git clone git@github.com:bergren2/colors.git
     $ cd colors
     $ npm install -g cordova
-    $ npm install
 
 ## Development
 
