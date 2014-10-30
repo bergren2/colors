@@ -1,3 +1,4 @@
+/*globals document, window*/
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -16,28 +17,39 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var ColorChooser = function () {
+var BodyColor = function () {
+  var hex =  function () {
+    var values = '0123456789ABCDEF';
+    return values[Math.floor(Math.random() * values.length)];
+  };
+
+  var newColor = function (existingColor) {
+    var color;
+
+    // not ideal: knockout passes object through newColor function
+    if (typeof existingColor === 'string') {
+      color = existingColor;
+    } else {
+      color = '#';
+
+      var i;
+      for (i = 0; i < 6; i++) {
+        color += hex();
+      }
+    }
+
+    var body = document.getElementsByTagName('body')[0];
+    body.setAttribute('style', 'background: ' + color);
+    window.localStorage.color = color;
+  };
 
   return {
     initialize: function () {
-      this.newColor();
+      newColor(window.localStorage.color);
 
       return this;
     },
-    newColor: function () {
-      var color = '#';
-      var i;
-      for (i = 0; i < 6; i++) {
-        color += this.hex();
-      }
-
-      var body = document.getElementsByTagName('body')[0];
-      body.setAttribute('style', 'background: ' + color);
-    },
-    hex: function () {
-      var values = '0123456789ABCDEF';
-      return values[Math.floor(Math.random() * values.length)];
-    }
+    newColor: newColor
   };
 };
 
@@ -74,4 +86,4 @@ var app = {
 };
 
 app.initialize();
-var colors = ColorChooser().initialize();
+var bodyColor = BodyColor().initialize();
