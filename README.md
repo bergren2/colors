@@ -38,7 +38,25 @@ need to install additional components. You will be prompted when this happens.
 
 ## Deployment
 
-TBD
+### Beta Testing
+
+Check out the [Apple
+Documentation](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/TestingYouriOSApp/TestingYouriOSApp.html),
+specifically "Ad Hoc Testing".
+
+First, make sure the intended test device is properly registered on the Apple
+Developer Member Center, and then that it is properly displaying in Xcode under
+"Windows > Devices".
+
+After running `cordova build ios --device`, open
+`platforms/ios/Colors.xcodeproj` in Xcode. Then do the following:
+
+1. "Product > Archive" to create an archive.
+2. Open "Window > Organizer" and then choose the "Archives" tab.
+3. Select "Export" and then "Save for Ad Hoc Development".
+4. Double-click the `.ipa` file you just created. This should open iTunes.
+5. In iTunes, open your tethered device and go to Apps, where you should see your
+app. Click "Install" and apply the changes.
 
 ## License
 
