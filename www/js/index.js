@@ -4,6 +4,8 @@ var BodyColor = function () {
     return values[Math.floor(Math.random() * values.length)];
   };
 
+  var body = document.getElementsByTagName('body')[0];
+
   var newColor = function (existingColor) {
     var color;
 
@@ -19,7 +21,6 @@ var BodyColor = function () {
       }
     }
 
-    var body = document.getElementsByTagName('body')[0];
     body.style.background = color;
     window.localStorage.color = color;
   };
